@@ -16,3 +16,6 @@ os.environ["GOOGLE_API_KEY"] = "ENTER YOUR API KEY" #enter your api key#
 Settings.llm = GoogleGenAI(model="models/gemini-2.5-flash")
 Settings.embed_model = GoogleGenAIEmbedding(model_name="models/text-embedding-004")
 Settings.chunk_size = 1024
+
+# Global variable to hold our index
+index = None
