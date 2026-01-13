@@ -7,3 +7,7 @@ import gradio as gr
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings
 from llama_index.llms.google_genai import GoogleGenAI
 from llama_index.embeddings.google_genai import GoogleGenAIEmbedding
+
+# --- INITIALIZATION ---
+nest_asyncio.apply()
+os.environ["GOOGLE_API_KEY"] = "ENTER YOUR API KEY" #enter your api key#
