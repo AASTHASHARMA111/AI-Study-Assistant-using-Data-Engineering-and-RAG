@@ -26,3 +26,7 @@ def process_files(file_objs):
     global index
     if not file_objs:
         return "⚠️ Please upload at least one PDF."
+
+    data_path = "./data_gradio"
+    if not os.path.exists(data_path):
+        os.makedirs(data_path)
