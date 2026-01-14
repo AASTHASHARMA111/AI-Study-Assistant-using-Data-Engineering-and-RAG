@@ -19,3 +19,10 @@ Settings.chunk_size = 1024
 
 # Global variable to hold our index
 index = None
+
+# --- BACKEND FUNCTIONS ---
+def process_files(file_objs):
+    """Data Engineering: Upload, Chunk, Embed, and Index"""
+    global index
+    if not file_objs:
+        return "⚠️ Please upload at least one PDF."
