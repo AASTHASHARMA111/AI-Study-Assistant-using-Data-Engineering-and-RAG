@@ -27,6 +27,12 @@ def process_files(file_objs):
     if not file_objs:
         return "⚠️ Please upload at least one PDF."
 
+        file_names = []
+    for file in file_objs:
+        name = os.path.basename(file.name)
+        with open(os.path.join(data_path, name), "wb") as f:
+            f.write(open(file.name, "rb").read())
+        file_names.append(name)
     data_path = "./data_gradio"
     if not os.path.exists(data_path):
         os.makedirs(data_path)
