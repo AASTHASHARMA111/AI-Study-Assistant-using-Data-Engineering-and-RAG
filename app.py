@@ -27,12 +27,20 @@ def process_files(file_objs):
     if not file_objs:
         return "⚠️ Please upload at least one PDF."
 
-        file_names = []
+    data_path = "./data_gradio"
+    if not os.path.exists(data_path):
+        os.makedirs(data_path)
+
+    file_names = []
     for file in file_objs:
         name = os.path.basename(file.name)
         with open(os.path.join(data_path, name), "wb") as f:
             f.write(open(file.name, "rb").read())
         file_names.append(name)
-    data_path = "./data_gradio"
-    if not os.path.exists(data_path):
-        os.makedirs(data_path)
+
+    try:
+        documents = SimpleDirectoryReader(data_path).load_data()
+        index = VectorStoreIndex.from_documents(documents)
+        return f"✅ Successfully indexed {len(file_names)} files: {', '.join(file_names)}"
+    except Exception as e:
+        return f"❌ Error: {str(e)}"
