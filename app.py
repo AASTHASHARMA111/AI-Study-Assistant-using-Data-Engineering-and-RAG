@@ -44,3 +44,9 @@ def process_files(file_objs):
         return f"✅ Successfully indexed {len(file_names)} files: {', '.join(file_names)}"
     except Exception as e:
         return f"❌ Error: {str(e)}"
+
+def generate_notes():
+    """Generates a summary of notes from the entire index."""
+    global index
+    if index is None:
+        return "⚠️ Please upload and 'Process' documents first."
