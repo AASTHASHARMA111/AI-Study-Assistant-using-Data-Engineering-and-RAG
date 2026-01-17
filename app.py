@@ -68,3 +68,9 @@ def generate_notes():
         return response.response
     except Exception as e:
         return f"❌ Error generating notes: {str(e)}"
+
+def chat_response(message, history):
+    """RAG Retrieval & Generation with Source Attribution"""
+    global index
+    if index is None:
+        return "⚠️ Please upload and 'Process' your documents in the sidebar first."
