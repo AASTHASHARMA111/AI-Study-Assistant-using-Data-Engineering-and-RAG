@@ -86,3 +86,19 @@ def chat_response(message, history):
         answer += f"- *{fname} (Page {page})* | Relevance: {node.score:.2f}\n"
 
     return answer
+
+# --- CUSTOM THEME ---
+# Defining a custom theme with purple and pink accents on a white background
+theme = gr.themes.Soft(
+    primary_hue="purple",
+    secondary_hue="pink",
+    neutral_hue="slate",
+).set(
+    body_background_fill="#ffffff", # Pure white background
+    block_background_fill="#fdf7ff", # Very light pinkish-white for blocks
+    block_border_color="#e0c3fc",   # Light purple border
+    button_primary_background_fill="#9333ea", # Vibrant purple button
+    button_primary_background_fill_hover="#ec4899", # Pink on hover
+    button_primary_text_color="white",
+    block_title_text_color="#9333ea" # Purple title color
+)
