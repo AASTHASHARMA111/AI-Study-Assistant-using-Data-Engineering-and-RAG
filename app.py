@@ -60,3 +60,11 @@ def generate_notes():
     Use main headings, subheadings, and detailed bullet points to organize the key information logically.
     Focus on definitions, important concepts, and summaries.
     """
+
+    try:
+        # Show a loading indicator in the UI
+        gr.Info("Generating study notes... This may take a minute.")
+        response = query_engine.query(prompt)
+        return response.response
+    except Exception as e:
+        return f"❌ Error generating notes: {str(e)}"
