@@ -74,3 +74,15 @@ def chat_response(message, history):
     global index
     if index is None:
         return "⚠️ Please upload and 'Process' your documents in the sidebar first."
+
+    query_engine = index.as_query_engine(similarity_top_k=3)
+    response = query_engine.query(message)
+
+    answer = f"{response.response}\n\n"
+    answer += "🔍 **Sources Found:**\n"
+    for node in response.source_nodes:
+        fname = node.metadata.get('file_name', 'Unknown')
+        page = node.metadata.get('page_label', 'Unknown')
+        answer += f"- *{fname} (Page {page})* | Relevance: {node.score:.2f}\n"
+
+    return answer
