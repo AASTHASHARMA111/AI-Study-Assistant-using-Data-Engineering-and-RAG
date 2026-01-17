@@ -50,3 +50,13 @@ def generate_notes():
     global index
     if index is None:
         return "⚠️ Please upload and 'Process' documents first."
+
+    # We use a specific query engine for summarization
+    query_engine = index.as_query_engine(response_mode="tree_summarize")
+
+    prompt = """
+    You are an expert student assistant.
+    Create comprehensive, well-structured study notes from the entire provided document content.
+    Use main headings, subheadings, and detailed bullet points to organize the key information logically.
+    Focus on definitions, important concepts, and summaries.
+    """
