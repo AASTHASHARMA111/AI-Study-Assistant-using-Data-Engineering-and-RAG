@@ -102,3 +102,8 @@ theme = gr.themes.Soft(
     button_primary_text_color="white",
     block_title_text_color="#9333ea" # Purple title color
 )
+
+# --- GRADIO DASHBOARD UI ---
+with gr.Blocks(theme=theme, title="Gemini 2.5 RAG Study Assistant") as demo:
+    gr.Markdown("# Data Engg + RAG Study Assistant")
+    gr.Markdown("Upload your **Syllabus, PYQs, and Books** to generate notes or chat with Gemini 2.5 Flash.")
