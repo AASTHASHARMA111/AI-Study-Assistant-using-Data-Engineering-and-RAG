@@ -131,3 +131,10 @@ with gr.Blocks(theme=theme, title="Gemini 2.5 RAG Study Assistant") as demo:
                 examples=["Is this topic in my syllabus?", "Summarize the key concepts from Chapter 2", "Find PYQ questions related to OS Scheduling"],
                 cache_examples=False,
             )
+
+    # Event bindings
+    process_btn.click(process_files, inputs=[file_output], outputs=[status_msg])
+    notes_btn.click(generate_notes, outputs=[notes_output])
+
+# Launch the App
+demo.launch(share=True, debug=True)
