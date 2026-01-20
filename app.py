@@ -107,3 +107,11 @@ theme = gr.themes.Soft(
 with gr.Blocks(theme=theme, title="Gemini 2.5 RAG Study Assistant") as demo:
     gr.Markdown("# Data Engg + RAG Study Assistant")
     gr.Markdown("Upload your **Syllabus, PYQs, and Books** to generate notes or chat with Gemini 2.5 Flash.")
+
+    with gr.Row():
+        # Sidebar/Left Column: Data Engineering & Notes
+        with gr.Column(scale=1):
+            gr.Markdown("### 🛠️ Data Pipeline")
+            file_output = gr.File(file_count="multiple", label="Upload PDF Documents", file_types=[".pdf"])
+            process_btn = gr.Button("🚀 Process & Index Data", variant="primary")
+            status_msg = gr.Textbox(label="Status", interactive=False)
