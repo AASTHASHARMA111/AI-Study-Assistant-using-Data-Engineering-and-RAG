@@ -122,3 +122,12 @@ with gr.Blocks(theme=theme, title="Gemini 2.5 RAG Study Assistant") as demo:
             notes_btn = gr.Button("✨ Generate Study Notes ✨", variant="primary")
             # Use Markdown component to display formatted notes
             notes_output = gr.Markdown(label="Generated Notes")
+
+        # Main Column: Chat Interface
+        with gr.Column(scale=2):
+            gr.Markdown("### 💬 Chat with your Knowledge Base")
+            chatbot = gr.ChatInterface(
+                fn=chat_response,
+                examples=["Is this topic in my syllabus?", "Summarize the key concepts from Chapter 2", "Find PYQ questions related to OS Scheduling"],
+                cache_examples=False,
+            )
