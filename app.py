@@ -115,3 +115,10 @@ with gr.Blocks(theme=theme, title="Gemini 2.5 RAG Study Assistant") as demo:
             file_output = gr.File(file_count="multiple", label="Upload PDF Documents", file_types=[".pdf"])
             process_btn = gr.Button("🚀 Process & Index Data", variant="primary")
             status_msg = gr.Textbox(label="Status", interactive=False)
+
+            gr.Markdown("---") # Separator
+            gr.Markdown("### 📝 Notes Generator")
+            gr.Markdown("Click below to generate comprehensive study notes from all uploaded files.")
+            notes_btn = gr.Button("✨ Generate Study Notes ✨", variant="primary")
+            # Use Markdown component to display formatted notes
+            notes_output = gr.Markdown(label="Generated Notes")
